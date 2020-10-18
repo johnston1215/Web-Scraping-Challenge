@@ -25,3 +25,13 @@ def scrape():
 
     browser.quit()
     return news
+
+    browser1 = init_browser()
+    featpic = {}
+
+    url1 = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
+    browser1.visit(url1)
+    time.sleep(1)
+
+    html1 = browser1.html1
+    soup1 = BeautifulSoup(html1, "html.parser")
