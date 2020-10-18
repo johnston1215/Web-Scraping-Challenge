@@ -35,3 +35,9 @@ def scrape():
 
     html1 = browser1.html1
     soup1 = BeautifulSoup(html1, "html.parser")
+
+    browser1.links.find_by_partial_text('FULL IMAGE').click()
+    #featpic = soup1.find("")
+
+    browser1.quit()
+    #print(featpic)
