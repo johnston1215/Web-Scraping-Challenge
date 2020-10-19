@@ -10,7 +10,7 @@ def init_browser():
 
 def scrape():
     browser = init_browser()
-    news = {}
+    data = {}
 
     url = "https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
     browser.visit(url)
@@ -20,24 +20,28 @@ def scrape():
     soup = BeautifulSoup(html, "html.parser")
 
     slide = soup.select_one("ul.item_list li.slide")
-    news["title"]= slide.find("div", class_="content_title").get_text()
-    news["paragraph"] = soup.find("div", class_="article_teaser_body").get_text()
-
-    browser.quit()
-    return news
+    data["title"]= slide.find("div", class_="content_title").get_text()
+    data["paragraph"] = soup.find("div", class_="article_teaser_body").get_text()
 
     browser1 = init_browser()
     featpic = {}
-
     url1 = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser1.visit(url1)
     time.sleep(1)
 
-    html1 = browser1.html1
+    base_url = "https://www.jpl.nasa.gov"
+    browser1.links.find_by_partial_text('FULL IMAGE').click()
+    time.sleep(1)
+    html1 = browser1.html
     soup1 = BeautifulSoup(html1, "html.parser")
 
-    browser1.links.find_by_partial_text('FULL IMAGE').click()
-    #featpic = soup1.find("")
+    featpic = soup1.find("img", class_="fancybox-image")["src"]
+    fullurl = base_url+featpic
+    data["featpic"]=fullurl
 
+    browser.quit()
     browser1.quit()
-    #print(featpic)
+
+    return data
+
+
