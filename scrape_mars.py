@@ -39,8 +39,11 @@ def scrape():
     fullurl = base_url+featpic
     data["featpic"]=fullurl
 
+    
+
     browser.quit()
     browser1.quit()
+    browser2.quit()
 
     return data
 
