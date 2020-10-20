@@ -33,54 +33,27 @@
     </div>
 
     <div class="col-md-4" id="mars-facts">
-      {{data.table | safe}}
-      <!-- <table class="table" class="dataframe">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Mars</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Equatorial Diameter:</th>
-            <td>6,792 km</td>
-          </tr>
-          <tr>
-            <th>Polar Diameter:</th>
-            <td>6,752 km</td>
-          </tr>
-          <tr>
-            <th>Mass:</th>
-            <td>6.39 × 10^23 kg (0.11 Earths)</td>
-          </tr>
-          <tr>
-            <th>Moons:</th>
-            <td>2 (Phobos &amp; Deimos)</td>
-          </tr>
-          <tr>
-            <th>Orbit Distance:</th>
-            <td>227,943,824 km (1.38 AU)</td>
-          </tr>
-          <tr>
-            <th>Orbit Period:</th>
-            <td>687 days (1.9 years)</td>
-          </tr>
-          <tr>
-            <th>Surface Temperature:</th>
-            <td>-87 to -5 °C</td>
-          </tr>
-          <tr>
-            <th>First Record:</th>
-            <td>2nd millennium BC</td>
-          </tr>
-          <tr>
-            <th>Recorded By:</th>
-            <td>Egyptian astronomers</td>
-          </tr>
-        </tbody>
-      </table> -->
+      <div class="col-md-12">
+        <h3 class="heading">Mars Facts</h3>
+        <img src={{data.html_table | safe}}>
+      </div>
     </div>
+
+    <!-- <div class="row" id="mars-hemispheres">
+      <div class="col-md-12">
+        <h3 class="heading">Mars Hemispheres</h3>
+        <img src={{data.hemis}}>
+      </div>
+    </div> -->
+
+    <div class="row" id="mars-hemispheres">
+      <div class="col-md-12">
+        <h3 class="heading">Mars Hemispheres</h3>
+    {% for hemi in data %}
+        <img src = {{data.hemis}} >
+      </div>
+    </div>
+    {% endfor %}
 
   </div>
 </body>
