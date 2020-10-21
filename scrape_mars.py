@@ -75,5 +75,3 @@ def scrape():
     browser.quit()
 
     return data
-
-

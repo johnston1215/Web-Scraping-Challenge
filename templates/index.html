@@ -35,25 +35,19 @@
     <div class="col-md-4" id="mars-facts">
       <div class="col-md-12">
         <h3 class="heading">Mars Facts</h3>
-        <img src={{data.html_table | safe}}>
+        {{data.html_table | safe}}
       </div>
     </div>
-
-    <!-- <div class="row" id="mars-hemispheres">
-      <div class="col-md-12">
-        <h3 class="heading">Mars Hemispheres</h3>
-        <img src={{data.hemis}}>
-      </div>
-    </div> -->
 
     <div class="row" id="mars-hemispheres">
       <div class="col-md-12">
         <h3 class="heading">Mars Hemispheres</h3>
-    {% for hemi in data %}
-        <img src = {{data.hemis}} >
+    {% for hemi in data.hemis %}
+        <img src = "{{hemi}}" >
+    {% endfor %}
       </div>
     </div>
-    {% endfor %}
+
 
   </div>
 </body>
